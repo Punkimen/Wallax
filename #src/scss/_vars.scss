@@ -1,0 +1,196 @@
+$md1: 1440px;
+$md2: 1200px;
+$md3: 992px;
+$md4: 767px;
+$md5: 568px;
+$md6: 412px;
+
+$colorGreen: #B1FA16;
+$boxShadow: -15px 16px 12px -11px rgb(177 250 22);
+
+html,
+body {
+    height: 100%;
+    box-sizing: border-box;
+
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #000000;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+
+
+    &.overlay {
+        height: 100vh;
+        overflow: hidden;
+    }
+}
+
+.page-content {
+    position: relative;
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.main {
+    overflow: hidden;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 0 15px;
+    max-width: 1550px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-weight: 600;
+    font-size: 43px;
+
+    @media(max-width:$md4) {
+        font-size: 32px;
+    }
+
+    @media(max-width:$md5) {
+        font-size: 24px;
+    }
+}
+
+.main-text {
+    font-size: 20px;
+    line-height: 24px;
+
+    @media(max-width:$md5) {
+        font-size: 16px;
+    }
+}
+
+.btn {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 7px 35px;
+    background: $colorGreen;
+    color: #000;
+    transition: all ease .2s;
+    border-radius: 100px;
+    font-weight: 600;
+    line-height: 20px;
+
+    &:hover {
+        box-shadow: $boxShadow;
+    }
+}
+
+
+.preloader {
+    /*фиксированное позиционирование*/
+    position: fixed;
+    /* координаты положения */
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* фоновый цвет элемента */
+    background: #000;
+    /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+    z-index: 1001;
+}
+
+.preloader__row {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+    text-align: center;
+    animation: preloader-rotate 2s infinite linear;
+}
+
+.preloader__item {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    background-color: $colorGreen;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    animation: preloader-bounce 2s infinite ease-in-out;
+}
+
+.preloader__item:last-child {
+    top: auto;
+    bottom: 0;
+    animation-delay: -1s;
+}
+
+@keyframes preloader-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes preloader-bounce {
+
+    0%,
+    100% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
+
+.loaded_hiding .preloader {
+    transition: 0.3s opacity;
+    opacity: 0;
+}
+
+.loaded .preloader {
+    display: none;
+}
