@@ -208,6 +208,7 @@
     max-width: 220px;
     width: 100%;
     padding: 7px 20px;
+    border: none;
 
     @media(max-width:$md5) {
       margin: 0 auto;
@@ -227,6 +228,7 @@
 .sale-table__col_bts {
   display: flex;
   justify-content: space-between;
+  margin-top: 40px;
 
   @media(max-width:$md5) {
     display: block;
