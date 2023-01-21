@@ -1,0 +1,148 @@
+.tokenomics {
+  padding: 50px 0 150px;
+  position: relative;
+  background: #000;
+
+  &__title {
+    font-size: 43px;
+    line-height: 1.5;
+    font-weight: 600;
+    margin-bottom: 40px;
+
+    @media(max-width:$md3) {
+      font-size: 43px;
+      margin-bottom: 40px;
+    }
+
+    @media(max-width:$md5) {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__wrapper {
+    max-width: 1340px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @media(max-width:$md3) {
+      display: block;
+    }
+  }
+
+  &__graph {
+    margin-right: 20px;
+
+    @media(max-width:$md3) {
+      margin-right: 0;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__tocken {
+    display: flex;
+    margin-bottom: 100px;
+
+    @media(max-width:$md4) {
+      display: block;
+    }
+  }
+
+  &__tocken-label {
+    margin-right: 10px;
+
+    @media(max-width:$md4) {
+      margin-right: 0;
+      margin-bottom: 19px;
+    }
+  }
+
+  &__tocken-value {
+    margin-right: 10px;
+    word-wrap: break-word;
+
+    @media(max-width:$md4) {
+      display: inline;
+    }
+  }
+
+  &__tocken-copy {
+    display: inline;
+
+    svg {
+      fill: #fff;
+    }
+
+    &:hover {
+      svg {
+        fill: $colorGreen;
+      }
+    }
+  }
+
+  &__loader-circle {
+    @media(max-width:$md3) {
+      margin: 0 auto;
+    }
+  }
+
+  &__handle {
+    max-width: 440px;
+    width: 100%;
+
+    @media(max-width:$md3) {
+      margin: 0 auto;
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 34px;
+    font-size: 16px;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &_total {
+      position: relative;
+      font-size: 20px;
+      margin-bottom: 40px;
+
+      &::after {
+        content: url(../img/icons/check-icon_2.svg);
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__row-label {
+    margin-right: 10px;
+  }
+
+  &__row-value {}
+}
+
+.tokenomics-stat {
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all ease .2s;
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid $colorGreen;
+    box-shadow: -9px 8px 15px rgba(177, 250, 22, 0.2);
+  }
+
+  &.current {
+    border: 1px solid $colorGreen;
+    box-shadow: -9px 8px 15px rgba(177, 250, 22, 0.2);
+  }
+}

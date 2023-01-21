@@ -68,9 +68,7 @@ body {
     overflow-x: hidden;
 }
 
-.main {
-    overflow: hidden;
-}
+.main {}
 
 ul,
 li {
@@ -106,6 +104,15 @@ li {
     @media(max-width:$md5) {
         font-size: 16px;
     }
+}
+
+.btn-reset {
+    display: block;
+    width: fit-content;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
 }
 
 .btn {
@@ -193,4 +200,33 @@ li {
 
 .loaded .preloader {
     display: none;
+}
+
+
+.notification {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #000;
+    border-radius: 20px;
+    padding: 5px 15px 6px;
+    font-size: 16px;
+    line-height: 1.2;
+    display: flex;
+    z-index: 9;
+    color: var(--color-dark);
+    pointer-events: none;
+    opacity: 0;
+    transition: all ease 0.3s;
+    border: 1px solid $colorGreen;
+    display: flex;
+    align-items: center;
+}
+
+.notification.show {
+    opacity: 1;
+}
+
+.notification__icon {
+    margin-right: 10px;
 }

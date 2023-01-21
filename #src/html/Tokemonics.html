@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallax</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="page-content">
+    @@include('components/_header.html')
+    <main class="main">
+      <section class="tokenomics">
+        <div class="section__decor">
+          <img src="img/bg_ellipse.png" alt="">
+        </div>
+        <div class="container">
+          <h1 class="tokenomics__title">Tokenomics</h1>
+          <div class="tokenomics__wrapper">
+            <div class="tokenomics__graph">
+              <div class="tokenomics__tocken">
+                <div class="tokenomics__tocken-label">Contract:</div>
+                <div id="token" class="tokenomics__tocken-value">
+                  0xdb305f8b9B45c92a8e71637e4E8C7dcfF8054e1b
+                </div>
+                <button id="copy-token" class="tokenomics__tocken-copy btn-reset">
+                  <svg class="" width="16" height="18">
+                    <use xlink:href="./img/icons/icons.svg#copy"></use>
+                  </svg>
+                </button>
+              </div>
+              <div class="tokenomics__loader-circle loader-circle">
+                <span class="loader-circle__back"></span>
+                <svg class="loader-circle__svg" width="292" height="292">
+                  <circle id="circle" stroke="#B1FA16" stroke-width="8" stroke-linecap="round" stroke-align="inset"
+                    fill="transparent" r="140" cx="145" cy="145" />
+                </svg>
+                <div class="loader-circle__value">
+                  <div class="loader-circle__percent">39%</div>
+                  <div class="loader-circle__descr">
+                    M2E rewards
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tokenomics__handle">
+              <div class="tokenomics__row tokenomics__row_total">
+                <div class="tokenomics__row-label">Total</div>
+                <div class="tokenomics__row-value">100,000,000</div>
+              </div>
+              <div class="tokenomics__row tokenomics-stat current">
+                <div class="tokenomics__row-label">M2E rewards</div>
+                <div class="tokenomics__row-value">39%</div>
+              </div>
+              <div class="tokenomics__row tokenomics-stat">
+                <div class="tokenomics__row-label">Team</div>
+                <div class="tokenomics__row-value">7%</div>
+              </div>
+              <div class="tokenomics__row tokenomics-stat">
+                <div class="tokenomics__row-label">Marketing & CEX</div>
+                <div class="tokenomics__row-value">12%</div>
+              </div>
+              <div class="tokenomics__row tokenomics-stat">
+                <div class="tokenomics__row-label">Liquidiry</div>
+                <div class="tokenomics__row-value">28%</div>
+              </div>
+              <div class="tokenomics__row tokenomics-stat">
+                <div class="tokenomics__row-label">Presale</div>
+                <div class="tokenomics__row-value">14%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      @@include('components/_socials.html')
+    </main>
+    @@include('components/_footer.html')
+  </div>
+  <div id="modal-copyed" class="notification">
+    <div class="notification__icon">
+      <img src="../img/icons/check-icon_2.svg" alt="check">
+    </div>
+    <div class="notification__text">Copied!</div>
+  </div>
+  <div class="preloader">
+    <div class="preloader__row">
+      <div class="preloader__item"></div>
+      <div class="preloader__item"></div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/tokemoniks.js"></script>
+</body>
+
+</html>

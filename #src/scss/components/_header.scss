@@ -8,7 +8,7 @@
 
   &__decor {
     position: absolute;
-    top: 0;
+    top: 50px;
     left: 0;
     transform: translate(-50%, -25%);
     z-index: -1;
@@ -203,12 +203,12 @@
 
     &::after {
       content: "";
-      position: absolute;
+      position: fixed;
       background: rgba(0, 0, 0, 0.192);
-      left: -15px;
-      top: 0;
+      left: 0;
+      top: 123px;
       height: 100vh;
-      width: calc(100% + 30px);
+      width: 100vw;
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       z-index: -1;
