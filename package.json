@@ -24,6 +24,10 @@
     "gulp-ttf2woff": "^1.1.1",
     "gulp-ttf2woff2": "^4.0.1",
     "gulp-uglify-es": "^3.0.0",
+    "gulp-webp": "^4.0.1",
     "sass": "^1.43.4"
+  },
+  "dependencies": {
+    "gulp-newer": "^1.4.0"
   }
 }

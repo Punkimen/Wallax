@@ -1,83 +1,55 @@
 "use strict";
-window.onload = function () {
-	document.body.classList.add("loaded_hiding");
-	window.setTimeout(function () {
-		document.body.classList.add("loaded");
-		document.body.classList.remove("loaded_hiding");
-	}, 500);
-};
-// main functions
-document.addEventListener("DOMContentLoaded", function () {
-	const addClass = (el, className) => {
-		el.classList.add(className);
-	};
-	const removeClass = (el, className) => {
-		el.classList.remove(className);
-	};
-	const body = document.querySelector("body");
-	{
-		// header
-		const mobileMenu = document.querySelector(".mobile-menu");
-		const mobileMenuContainer = document.querySelector(
-			".mobile-menu__container"
-		);
-		const headerNav = document.querySelector(".header__nav");
-		const headerLogo = document.querySelector(".header__logo");
-		const burger = document.querySelector(".burger");
+import {initSlider} from "./module/initSliders.js";
+import {aboutTabs, activityTabs, infoTabs} from "./module/initTabs.js";
+import {mobNav, navInit} from "./module/scrollNavigation.js";
+document.addEventListener("DOMContentLoaded", () => {
+	// tabs
+	aboutTabs();
+	activityTabs();
+	infoTabs();
 
-		const headerMobileBuild = () => {
-			const windowWidth = window.innerWidth;
-			if (windowWidth <= 992 && !mobileMenu.classList.contains("innered")) {
-				mobileMenuContainer.prepend(headerNav);
-				addClass(mobileMenu, "innered");
-			} else if (
-				windowWidth > 992 &&
-				mobileMenu.classList.contains("innered")
-			) {
-				headerLogo.after(headerNav);
-				removeClass(mobileMenu, "innered");
-			}
-		};
-		headerMobileBuild();
+	// slider
+	initSlider();
 
-		burger.addEventListener("click", (e) => {
-			if (!burger.classList.contains("active")) {
-				addClass(mobileMenu, "open");
-				addClass(burger, "active");
-				addClass(body, "overlay");
-			} else {
-				removeClass(mobileMenu, "open");
-				removeClass(burger, "active");
-				removeClass(body, "overlay");
-			}
-		});
+	// Якорные ссылки
 
-		// hero
-		const heroContent = document.querySelector(".hero__content");
-		const heroTitle = document.querySelector(".hero__title");
-		const heroImg = document.querySelector(".hero__img");
+	const smoothLinks = document.querySelectorAll("[scroll-href]");
 
-		const heroBlocksChange = () => {
-			const windowWidth = window.innerWidth;
-			if (windowWidth <= 992 && !heroContent.classList.contains("mobile")) {
-				heroTitle.after(heroImg);
-				addClass(heroContent, "mobile");
-			} else if (
-				windowWidth > 992 &&
-				heroContent.classList.contains("mobile")
-			) {
-				heroContent.after(heroImg);
-				removeClass(heroContent, "mobile");
-			}
-		};
-		if (heroContent) {
-			heroBlocksChange();
-		}
-		window.addEventListener("resize", (e) => {
-			headerMobileBuild();
-			if (heroContent) {
-				heroBlocksChange();
-			}
+	for (let smoothLink of smoothLinks) {
+		smoothLink.addEventListener("click", function (e) {
+			e.preventDefault();
+			const id = smoothLink.getAttribute("scroll-href");
+
+			document.querySelector(`[data-anchor="${id}"]`).scrollIntoView({
+				behavior: "smooth",
+				block: "start",
+			});
 		});
 	}
+	const sections = document.querySelectorAll("[data-anchor]");
+	mobNav(sections);
+
+	navInit();
+	AOS.init({
+		offset: 300,
+		once: true,
+	});
 });
+{
+	const sections = document.querySelectorAll("[data-anchor]");
+	window.addEventListener("resize", () => {
+		mobNav(sections);
+	});
+}
+
+// map
+let map;
+
+function initMap() {
+	map = new google.maps.Map(document.getElementById("map"), {
+		center: {lat: -34.397, lng: 150.644},
+		zoom: 8,
+	});
+}
+
+window.initMap = initMap;

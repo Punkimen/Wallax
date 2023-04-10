@@ -1,197 +1,51 @@
 .hero {
-  background: #000;
-  position: relative;
-  padding: 65px 0 121px;
-  z-index: 2;
+    padding: 56px 0 32px;
 
-  @media(max-width:$md4) {
-    padding-top: 0;
-    padding-bottom: 40px;
-  }
+    &__wrapper {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
 
-  &::after {
-    content: '';
-    position: absolute;
-    background: rgba(#000, 0.192);
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    backdrop-filter: blur(10px);
-    z-index: 2;
-
-    @media(max-width:$md4) {
-      display: none;
-    }
-  }
-
-  .hero__circle {
-    position: absolute;
-    bottom: -0;
-    right: -0;
-    z-index: 1;
-    width: 25vw;
-    min-width: 140px;
-    transform: translate(50%, 50%);
-
-    @media(max-width:$md3) {
-      display: none;
+        @media(max-width: $md3) {
+            display: block;
+        }
     }
 
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-  }
+    &__title {
+        font-family: var(--font-family-h);
+        max-width: 670px;
+        width: 100%;
+        margin-right: 20px;
+        text-transform: uppercase;
+        font-size: 57px;
+        letter-spacing: 0.13em;
+        line-height: 1.22em;
+        font-weight: 700;
 
+        @media(max-width: $md3) {
+            margin-right: 0;
+            margin-bottom: 64px;
+        }
 
-
-  &__wrapper {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-
-    @media(max-width:$md3) {
-      display: block;
-      width: 100%;
-    }
-  }
-
-  &__content {
-    max-width: 756px;
-    width: 100%;
-    flex: 0 0 756px;
-
-    @media(max-width:$md3) {
-      max-width: 100%;
-    }
-  }
-
-  &__title {
-    font-size: 68px;
-    line-height: 1.5;
-    font-weight: 600;
-    margin-bottom: 120px;
-
-    .hero__circle {
-      display: none;
-
-      @media(max-width:$md3) {
-        display: block;
-        bottom: 0;
-        right: 0;
-        transform: translate(50%, 50%);
-        z-index: -1;
-      }
+        @media(max-width: $md4) {
+            font-size: 32px;
+            margin-bottom: 48px;
+        }
     }
 
-    @media(max-width:$md3) {
-      font-size: 45px;
-      margin-bottom: 60px;
-      position: relative;
-      padding-top: 50px;
-      padding-bottom: 20px;
+    &__adress {
+        font-family: var(--font-family-h);
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 26px;
+        line-height: 1.4em;
+        max-width: 211px;
+        width: 100%;
 
-      &::after {
-        content: '';
-        position: absolute;
-        background: rgba(#000, 0.192);
-        left: -15px;
-        top: 0;
-        bottom: 0;
-        width: calc(100% + 30px);
-        backdrop-filter: blur(10px);
-        z-index: -1;
-      }
+        @media(max-width: $md3) {
+            max-width: 100%;
+        }
     }
-
-    @media(max-width:$md5) {
-      font-size: 36px;
-      margin-bottom: 40px;
-    }
-  }
-
-  &__socials {
-    display: flex;
-
-    @media(max-width:$md4) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      justify-content: center;
-      gap: 40px;
-    }
-  }
-
-  &__social {}
-
-  &__img {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    @media(max-width:$md3) {
-      margin-bottom: 50px;
-    }
-
-    @media(max-width:$md4) {
-      padding: 0 70px;
-    }
-
-    img {
-      min-width: 300px;
-      display: block;
-      max-width: 326px;
-      width: 100%;
-      height: auto;
-
-      @media(max-width:$md4) {
-        min-width: auto;
-        position: relative;
-        right: 40px;
-      }
-
-    }
-
-
-  }
-}
-
-.socials-items {
-  display: flex;
-
-  @media(max-width:$md3) {
-    justify-content: center;
-  }
-
-  &__item {
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid $colorGreen;
-    transotion: all ease .2s;
-    padding: 0 10px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    &:hover {
-      box-shadow: $boxShadow;
-    }
-
-    &:not(:last-child) {
-      margin-right: 40px;
-
-      @media(max-width:$md4) {
-        margin-right: 0;
-      }
-    }
-  }
 }
 
 .container {}
